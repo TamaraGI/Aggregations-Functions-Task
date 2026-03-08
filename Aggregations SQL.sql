@@ -1,16 +1,33 @@
 --Lesson 10 – Aggregations (COUNT, SUM, AVG, GROUP BY)
 
 --SECTION 1 – COUNT Aggregations (10 Questions)
+SELECT * FROM [property24].[dbo].[Property_information]
+
 --1. How many total properties are in the database?
-SELECT * FROM Property_information
+Select count(*) as Total_Poperties from [property24].[dbo].[Property_information]
+
 
 --2. How many properties are listed in each province?
+SELECT * FROM [property24].[dbo].[Property_information] where province = 'Gauteng'
+
 
 --3. How many properties are listed in each city?
+SELECT ([CITY]),
+
+COUNT([PROVINCE]) AS No_of_Properties
+FROM [property24].[dbo].[Property_information]
+GROUP BY [CITY]
+
 
 --4. How many properties have more than 2 bedrooms?
+Select COUNT(*) AS no_of_Properties_with_3plus_Bedrooms
+FROM [property24].[dbo].[Property_information] WHERE BEDROOMS > 2
+
 
 --5. How many properties have 2 or more bathrooms?
+SELECT COUNT(*) AS no_of_properties_with_2plus_bathrooms
+FROM [property24].[dbo].[Property_information] WHERE BATHROOMS >=2
+
 
 --6. How many properties have parking for at least 2 cars?
 
